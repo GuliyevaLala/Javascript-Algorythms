@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background: hsl(0 0% 20%);
+}
+
+.animation-text {
+    --bg-size: 400%;
+    --color-one: hsl(0, 99%, 49%);
+    --color-two: hsl(67, 99%, 49%);
+    --color-three: hsl(229, 99%, 49%);
+    --color-four: hsl(303, 99%, 49%);
+    --color-five: hsl(40 95% 55%);
+    font-size: clamp(3rem, 25vmin, 8rem);
+    background: linear-gradient(90deg,
+            var(--color-one),
+            var(--color-two),
+            var(--color-three),
+
+            var(--color-four),
+
+            var(--color-five),
+
+            var(--color-one)) 0 0 / var(--bg-size) 100%;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+    .animation-text {
+        animation: move-bg 6s linear infinite;
+    }
+
+    @keyframes move-bg {
+        to {
+            background-position: var(--bg-size) 0;
+        }
+    }
+}
